@@ -19,10 +19,10 @@ const ServiceCard = ({ index, title, icon }) => (
   >
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card transition-shadow duration-300 hover:shadow-[0_0_10px_10px_rgba(0,255,255,0.7)]'
+      className='w-full green-pink-gradient p-px rounded-[20px] shadow-card transition-shadow duration-300 hover:shadow-[0_0_10px_10px_rgba(0,255,255,0.7)]'
     >
       <div
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
+        className='bg-tertiary rounded-[20px] py-5 px-6 sm:px-12 min-h-[280px] flex justify-evenly items-center flex-col'
       >
         <img
           src={icon}
@@ -30,7 +30,7 @@ const ServiceCard = ({ index, title, icon }) => (
           className='w-16 h-16 object-contain'
         />
 
-        <h3 className='text-white text-[20px] font-bold text-center'>
+        <h3 className='text-white text-[18px] sm:text-[20px] font-bold text-center'>
           {title}
         </h3>
       </div>
@@ -41,16 +41,16 @@ const ServiceCard = ({ index, title, icon }) => (
 const About = () => {
   return (
     <>
-      <motion.div variants={textVariant()} className="text-end">
+      <motion.div variants={textVariant()} className="text-center sm:text-end">
         <p className={styles.sectionSubText}>Introduction</p>
         <h2 className={styles.sectionHeadText}>ABOUT ME</h2>
       </motion.div>
 
-      <div className="flex justify-self-center gap-8 mt-4 max-w-4xl">
-        <motion.img variants={fadeIn("", "", 0.1, 1)} src={me} alt="User" className="w-40 h-40 rounded-full object-cover" />
+      <div className="flex flex-col sm:flex-row justify-self-center gap-8 mt-4 max-w-4xl">
+        <motion.img variants={fadeIn("", "", 0.1, 1)} src={me} alt="User" className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover mx-auto sm:mx-0" />
         <motion.p
           variants={fadeIn("", "", 0.1, 1)}
-          className='text-secondary text-[17px] leading-[30px] flex-1'
+          className='text-secondary text-[15px] sm:text-[17px] leading-[30px] flex-1'
         >
           Hi, I’m Bijay, a MERN stack developer who blends creativity with clean engineering.
           <br /> I build fast, responsive, and scalable web apps — from polished frontends to reliable backends — using modern JavaScript tools.

@@ -5,8 +5,8 @@ import { github, insta, linkedin, logo } from '../assets'
 const Footer = () => {
   const year = new Date(2025, 10, 26, 15, 5, 0, 0).getFullYear();
   return (
-    <footer className='bg-primary text-white py-4 border-t-[1px] border-white'>
-      <img src={logo} alt='logo' className='h-16 justify-self-center mb-6 '/>
+    <footer className='bg-primary text-white py-4 border-t border-white'>
+      <img src={logo} alt='logo' className='h-12 sm:h-16 justify-self-center mb-4 sm:mb-6 '/>
       <div className='max-w-7xl mx-auto px-6'>
         <div className='flex flex-col md:flex-row justify-between items-center'>
           <div className='mb-4 md:mb-0 flex items-center space-x-3'>
@@ -24,7 +24,7 @@ const Footer = () => {
               rel='noopener noreferrer'
               className='hover:text-secondary transition-colors duration-300'
             >
-              <img src={github} alt='GitHub' className='w-8 h-8' />
+              <img src={github} alt='GitHub' className='w-6 h-6 sm:w-8 sm:h-8' />
             </a>
 
             <a
@@ -33,7 +33,7 @@ const Footer = () => {
               rel='noopener noreferrer'
               className='hover:text-secondary transition-colors duration-300'
             >
-              <img src={insta} alt='instagram' className='w-8 h-8' />
+              <img src={insta} alt='instagram' className='w-6 h-6 sm:w-8 sm:h-8' />
             </a>
 
             <a
@@ -42,12 +42,12 @@ const Footer = () => {
               rel='noopener noreferrer'
               className='hover:text-secondary transition-colors duration-300'
             >
-              <img src={linkedin} alt='linkedin' className='w-8 h-8' />
+              <img src={linkedin} alt='linkedin' className='w-6 h-6 sm:w-8 sm:h-8' />
             </a>
 
           </div>
         </div>
-        <div className='mt-4 pt-4 text-center text-secondary text-sm border-t-[1px] border-white'>
+        <div className='mt-4 pt-4 text-center text-secondary text-sm border-t border-white'>
           © {year} Bijay Kumar Shah. All rights reserved.
         </div>
       </div>
