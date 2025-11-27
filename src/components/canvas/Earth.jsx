@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
@@ -45,12 +45,41 @@ const Earth = () => {
 };
 
 const EarthCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 500px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaQueryChange);
+    };
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div className="w-full h-full flex items-center justify-center bg-primary">
+        <div className="text-center">
+          <div className="w-32 h-32 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+            <span className="text-white text-4xl">🌍</span>
+          </div>
+          <p className="text-secondary text-lg">Earth Model Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <Canvas
-      shadows
+      shadows={!isMobile}
       frameloop='demand'
-      dpr={[1, 2]}
-      gl={{ preserveDrawingBuffer: true }}
+      dpr={isMobile ? [1, 1] : [1, 2]}
+      gl={{ preserveDrawingBuffer: true, antialias: !isMobile }}
       camera={{
         fov: 45,
         near: 0.1,
