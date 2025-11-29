@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
+import mobile from '../../assets/hero.avif';
 
 const sanitizeGeometry = (geometry) => {
   if (!geometry.attributes || !geometry.attributes.position) return;
@@ -93,6 +94,18 @@ const ComputersCanvas = () => {
       mediaQuery.removeEventListener("change", handleMediaQueryChange);
     };
   }, []);
+
+  if (isMobile) {
+    return (
+      <div className="absolute bottom-40 left-1/2 transform -translate-x-1/2 w-1/2 h-1/2">
+        <img
+          src={mobile}
+          alt="Mobile development"
+          className="w-full h-full object-contain"
+        />
+      </div>
+    );
+  }
 
   return (
     <Canvas
