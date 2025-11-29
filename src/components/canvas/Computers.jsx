@@ -43,6 +43,11 @@ const Computers = ({ isMobile }) => {
     sanitizeScene(computer.scene);
   }
 
+  // If GLTF failed to load, return null to prevent white screen
+  if (!computer || !computer.scene) {
+    return null;
+  }
+
   return (
     <mesh>
       <hemisphereLight intensity={0.15} groundColor='black' />
