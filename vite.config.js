@@ -4,5 +4,32 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), tailwindcss(),],
+  plugins: [react(), tailwindcss()],
+  server: {
+    hmr: false, // Disable HMR to allow bfcache in dev mode
+  },
+  build: {
+    target: 'esnext',
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            if (id.includes('three') || id.includes('@react-three')) {
+              return 'three';
+            }
+            if (id.includes('framer-motion')) {
+              return 'framer-motion';
+            }
+            if (id.includes('react-router')) {
+              return 'react-router';
+            }
+            if (id.includes('typewriter-effect')) {
+              return 'typewriter';
+            }
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
 })

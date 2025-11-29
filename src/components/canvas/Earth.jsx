@@ -61,18 +61,18 @@ const EarthCanvas = () => {
     };
   }, []);
 
-  if (isMobile) {
-    return (
-      <div className="w-full h-full flex items-center justify-center bg-primary">
-        <div className="text-center">
-          <div className="w-32 h-32 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-            <span className="text-white text-4xl">🌍</span>
-          </div>
-          <p className="text-secondary text-lg">Earth Model Loading...</p>
-        </div>
-      </div>
-    );
-  }
+  // if (isMobile) {
+  //   return (
+  //     <div className="w-full h-full flex items-center justify-center bg-primary">
+  //       <div className="text-center">
+  //         <div className="w-32 h-32 bg-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+  //           <span className="text-white text-4xl">🌍</span>
+  //         </div>
+  //         <p className="text-secondary text-lg">Earth Model Loading...</p>
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   return (
     <Canvas

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 
-import { BallCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { technologies } from "../constants";
+import CustomLoader from "./CustomLoader";
+
+const BallCanvas = lazy(() => import("./canvas/Ball"));
 
 const Tech = () => {
   return (
@@ -11,7 +13,9 @@ const Tech = () => {
       <div className='flex flex-row flex-wrap justify-center gap-10'>
         {technologies.map((technology) => (
           <div className='w-28 h-28' key={technology.name}>
-            <BallCanvas icon={technology.icon} name={technology.name}/>
+            <Suspense fallback={<CustomLoader />}>
+              <BallCanvas icon={technology.icon} name={technology.name}/>
+            </Suspense>
           </div>
         ))}
       </div>

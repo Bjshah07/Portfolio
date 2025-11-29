@@ -4,6 +4,7 @@ import { styles } from "../styles";
 import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
+import { Suspense } from "react";
 
 const Contact = () => {
 
@@ -69,7 +70,9 @@ const Contact = () => {
         variants={slideIn("right", "tween", 0.2, 1)}
         className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
       >
-        <EarthCanvas />
+        <Suspense fallback={<div>Loading...</div>}>
+          <EarthCanvas />
+        </Suspense>
       </motion.div>
     </div>
   );

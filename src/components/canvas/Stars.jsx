@@ -44,13 +44,13 @@ const StarsCanvas = () => {
     };
   }, []);
 
-  if (isMobile) {
-    return (
-      <div className='w-full h-auto absolute inset-0 z-[-1] bg-linear-to-b from-primary to-black'>
-        {/* Simple background for mobile */}
-      </div>
-    );
-  }
+  // if (isMobile) {
+  //   return (
+  //     <div className='w-full h-auto absolute inset-0 z-[-1] bg-linear-to-b from-primary to-black'>
+  //       {/* Simple background for mobile */}
+  //     </div>
+  //   );
+  // }
 
   return (
     <div className='w-full h-auto absolute inset-0 z-[-1]'>

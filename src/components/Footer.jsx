@@ -1,12 +1,13 @@
 import React from 'react'
 import { github, insta, linkedin, logo } from '../assets'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
 const Footer = () => {
   const year = new Date(2025, 10, 26, 15, 5, 0, 0).getFullYear();
   return (
     <footer className='bg-primary text-white py-4 border-t border-white'>
-      <img src={logo} alt='logo' className='h-12 sm:h-16 justify-self-center mb-4 sm:mb-6 '/>
+      <LazyLoadImage src={logo} alt='logo' className='h-12 sm:h-16 justify-self-center mb-4 sm:mb-6 '/>
       <div className='max-w-7xl mx-auto px-6'>
         <div className='flex flex-col md:flex-row justify-between items-center'>
           <div className='mb-4 md:mb-0 flex items-center space-x-3'>
@@ -33,7 +34,7 @@ const Footer = () => {
               rel='noopener noreferrer'
               className='hover:text-secondary transition-colors duration-300'
             >
-              <img src={insta} alt='instagram' className='w-6 h-6 sm:w-8 sm:h-8' />
+              <img src={insta} alt='instagram' className='w-6 h-6 sm:w-8 sm:h-8' loading="lazy" />
             </a>
 
             <a

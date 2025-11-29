@@ -1,6 +1,7 @@
 import React from "react";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import me from "../assets/me1.png"
 
 import { styles } from "../styles";
@@ -20,14 +21,16 @@ const ServiceCard = ({ index, title, icon }) => (
     <motion.div
       variants={fadeIn("right", "spring", index * 0.5, 0.75)}
       className='w-full green-pink-gradient p-px rounded-[20px] shadow-card transition-shadow duration-300 hover:shadow-[0_0_10px_10px_rgba(0,255,255,0.7)]'
+      style={{ willChange: 'transform' }}
     >
       <div
         className='bg-tertiary rounded-[20px] py-5 px-6 sm:px-12 min-h-[280px] flex justify-evenly items-center flex-col'
       >
-        <img
+        <LazyLoadImage
           src={icon}
           alt='web-development'
           className='w-16 h-16 object-contain'
+         
         />
 
         <h3 className='text-white text-[18px] sm:text-[20px] font-bold text-center'>
