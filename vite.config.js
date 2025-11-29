@@ -20,9 +20,6 @@ export default defineConfig({
             if (id.includes('react-router')) {
               return 'react-router';
             }
-            if (id.includes('typewriter-effect')) {
-              return 'typewriter';
-            }
             return 'vendor';
           }
         },
