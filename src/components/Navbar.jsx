@@ -75,24 +75,33 @@ const Navbar = () => {
           <div
             className={`${
               !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            } fixed inset-0 bg-slate-950/50 backdrop-blur-lg z-50 transition-all duration-500 ease-in-out`}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-lime-500" : "text-white"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-            </ul>
+            <button
+              className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20 transition-colors duration-300"
+              onClick={() => setToggle(false)}
+            >
+              <img src={close} alt="close" className="w-6 h-6" />
+            </button>
+            <div className="flex flex-col items-center justify-center w-full h-full mt-10">
+              <ul className='list-none flex flex-col gap-8'>
+                {navLinks.map((nav, index) => (
+                  <li
+                    key={nav.id}
+                    className={`font-poppins font-semibold cursor-pointer text-2xl transition-all duration-300 transform ${
+                      active === nav.title ? "text-lime-400 scale-110" : "text-white hover:text-lime-300 hover:scale-105"
+                    }`}
+                    style={{ animationDelay: `${index * 0.1}s` }}
+                    onClick={() => {
+                      setToggle(!toggle);
+                      setActive(nav.title);
+                    }}
+                  >
+                    <a href={`#${nav.id}`} className="block py-3 px-6 rounded-lg hover:bg-white/10 transition-all duration-300 border border-transparent hover:border-lime-400/50">{nav.title}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

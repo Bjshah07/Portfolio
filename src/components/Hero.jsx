@@ -18,19 +18,22 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white flex `}>
+            Hi, I'm<span className='text-[#6CDAE0] ml-4'>Bijay</span>
+          </h1>
+          <div className={`${styles.heroSubText} mt-2 text-white-100`}>
             <Typewriter
               options={{
-                strings: ['Hi', 'नमस्ते', 'ਹੈਲੋ', 'ನಮಸ್ತೆ'],
+                strings: [
+                  `I craft smooth, responsive <br className='sm:block hidden' /> web interfaces with React <br className='sm:block hidden' /> and modern UI tools.`,
+                  `I build fast, reliable APIs <br className='sm:block hidden' /> powered by Node.js and <br className='sm:block hidden' /> Express.`,
+                  `I manage data the smart way <br className='sm:block hidden' /> using MongoDB and clean <br className='sm:block hidden' /> backend logic.`,
+                  `I deliver end-to-end web solutions <br className='sm:block hidden' /> that blend performance, <br className='sm:block hidden' /> clarity, and modern engineering.`
+                ],
                 autoStart: true,
                 loop: true,
               }}
-            />, I'm<span className='text-[#6CDAE0] ml-4'>Bijay</span>
-          </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            A passionate MERN developer <br className='sm:block hidden' />
-            building fast, scalable, and <br className='sm:block hidden' />
-            polished web solutions
-          </p>
+            />
+          </div>
         </div>
       </div>
 
